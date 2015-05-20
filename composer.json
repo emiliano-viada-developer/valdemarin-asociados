@@ -1,0 +1,19 @@
+{
+    "name": "hasheado/basic-stack",
+    "license": "MIT",
+    "type": "project",
+    "description": "Basic stack to build an app with admin interface",
+    "authors": [
+        {
+            "name": "Emiliano Viada",
+            "email": "emjovi@gmail.com",
+            "homepage": "http://www.hasheado.com"
+        }
+    ],
+    "require": {
+        "symfony/symfony": "2.3.*"
+    },
+    "require-dev": {
+
+    }
+}
