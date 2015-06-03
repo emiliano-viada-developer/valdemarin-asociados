@@ -1,0 +1,17 @@
+{#% extends sonata_block.templates.block_base %#}
+
+{% block block %}
+    <li class="user-body">
+	    <div class="col-xs-12 text-left">
+	        {{ 'profile.last_login' | trans({}, "SonataUserBundle") }}: {{ app.user.lastLogin.format('Y-m-d H:i:s') }}
+	    </div>
+	</li>
+	<li class="user-footer">
+	    <div class="pull-left">
+	        <!--<a href="{{ path('sonata_user_profile_show') }}" class="btn btn-default btn-flat">Profile</a>-->
+	    </div>
+	    <div class="pull-right">
+	        <a href="{{ path('sonata_user_admin_security_logout') }}" class="btn btn-default btn-flat">{{ 'link_logout' | trans({}, "SonataUserBundle") }}</a>
+	    </div>
+	</li>
+{% endblock %}
