@@ -12,11 +12,24 @@ $loader = require_once __DIR__.'/../app/bootstrap.php.cache';
 $loader = new ApcClassLoader('sf2', $loader);
 $loader->register(true);
 */
+$domainArray = explode('.', $_SERVER['HTTP_HOST']);
+$subdomain = $domainArray[0];
+$debug = false;
+switch ($subdomain) {
+    case 'local':
+        $env = 'dev';
+        $debug = true;
+        break;
+    case 'www':
+    default:
+        $env = 'prod';
+        break;
+}
 
 require_once __DIR__.'/../app/AppKernel.php';
 //require_once __DIR__.'/../app/AppCache.php';
 
-$kernel = new AppKernel('prod', false);
+$kernel = new AppKernel($env, $debug);
 $kernel->loadClassCache();
 //$kernel = new AppCache($kernel);
 $request = Request::createFromGlobals();

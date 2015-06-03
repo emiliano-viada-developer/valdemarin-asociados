@@ -32,8 +32,7 @@
         "sonata-project/admin-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/easy-extends-bundle": "~2.1",
-        "sonata-project/user-bundle": "~2.2",
-        "raindrop/sonata-theme-bundle": "dev-master"
+        "sonata-project/user-bundle": "~2.2"
     },
     "scripts": {
         "post-install-cmd": [
