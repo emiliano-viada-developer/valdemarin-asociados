@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @AppBundle/Resources/config/services.yml }
 
 framework:
     #esi:             ~
@@ -25,12 +26,15 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - 'OhGoogleMapFormTypeBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ 'OhGoogleMapFormTypeBundle' ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -60,13 +64,13 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        #auto_mapping: true
-        entity_managers:
-            default:
-                mappings:
-                    FOSUserBundle: ~
-                    ApplicationSonataUserBundle: ~
-                    SonataUserBundle: ~
+        auto_mapping: true
+        #entity_managers:
+        #    default:
+        #        mappings:
+        #            FOSUserBundle: ~
+        #            ApplicationSonataUserBundle: ~
+        #            SonataUserBundle: ~
 
 fos_user:
     db_driver:      orm # can be orm or odm

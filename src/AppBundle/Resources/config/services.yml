@@ -1,0 +1,24 @@
+services:
+    app.admin.building:
+        class: AppBundle\Admin\BuildingAdmin
+        arguments: [~, AppBundle\Entity\Building, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Inmobiliaria, label: Inmuebles}
+
+    app.admin.property_type:
+        class: AppBundle\Admin\PropertyTypeAdmin
+        arguments: [~, AppBundle\Entity\PropertyType, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Inmobiliaria, label: Tipos de Propiedad}
+
+    app.admin.location:
+        class: AppBundle\Admin\LocationAdmin
+        arguments: [~, AppBundle\Entity\Location, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Inmobiliaria, label: Ubicaciones}
+
+    app.admin.media:
+        class: AppBundle\Admin\MediaAdmin
+        arguments: [~, AppBundle\Entity\Media, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Inmobiliaria, label: Fotos}
