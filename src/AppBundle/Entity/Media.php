@@ -44,6 +44,11 @@ class Media
     protected $building;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Auction", inversedBy="images")
+     */
+    protected $auction;
+
+    /**
      * Unmapped field ("virtual")
      * @Assert\File(maxSize="6000000")
      */
@@ -257,5 +262,51 @@ class Media
     public function getBuilding()
     {
         return $this->building;
+    }
+
+    /**
+     * Set auction
+     *
+     * @param \AppBundle\Entity\Auction $auction
+     * @return Media
+     */
+    public function setAuction(\AppBundle\Entity\Auction $auction = null)
+    {
+        $this->auction = $auction;
+
+        return $this;
+    }
+
+    /**
+     * Get auction
+     *
+     * @return \AppBundle\Entity\Auction 
+     */
+    public function getAuction()
+    {
+        return $this->auction;
+    }
+
+    /**
+     * Set auctionLocality
+     *
+     * @param \AppBundle\Entity\Auction $auctionLocality
+     * @return Media
+     */
+    public function setAuctionLocality(\AppBundle\Entity\Auction $auctionLocality = null)
+    {
+        $this->auctionLocality = $auctionLocality;
+
+        return $this;
+    }
+
+    /**
+     * Get auctionLocality
+     *
+     * @return \AppBundle\Entity\Auction 
+     */
+    public function getAuctionLocality()
+    {
+        return $this->auctionLocality;
     }
 }

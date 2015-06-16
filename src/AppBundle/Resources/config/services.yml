@@ -5,6 +5,12 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: Inmobiliaria, label: Inmuebles}
 
+    app.admin.auction:
+        class: AppBundle\Admin\AuctionAdmin
+        arguments: [~, AppBundle\Entity\Auction, ~]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Inmobiliaria, label: Subastas}
+
     app.admin.property_type:
         class: AppBundle\Admin\PropertyTypeAdmin
         arguments: [~, AppBundle\Entity\PropertyType, ~]

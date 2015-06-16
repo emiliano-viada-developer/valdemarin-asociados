@@ -67,6 +67,8 @@ class MediaAdmin extends Admin
             $parentAdmin = $this->getParentFieldDescription()->getAdmin();
             if ($parentAdmin->getCode() === 'app.admin.building') {
                 $formMapper->add('building', 'sonata_type_model_hidden');
+            } elseif ($parentAdmin->getCode() === 'app.admin.auction') {
+                $formMapper->add('auction', 'sonata_type_model_hidden');
             }
         }
     }
