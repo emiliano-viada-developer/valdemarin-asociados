@@ -9,6 +9,10 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class PropertyTypeAdmin extends Admin
 {
+    protected $baseRouteName = 'property_type';
+
+    protected $baseRoutePattern = 'tipos-propiedad';
+
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {

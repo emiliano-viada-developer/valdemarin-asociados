@@ -10,6 +10,10 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class MediaAdmin extends Admin
 {
+    protected $baseRouteName = 'media';
+
+    protected $baseRoutePattern = 'media';
+
     /**
      * @param DatagridMapper $datagridMapper
      */

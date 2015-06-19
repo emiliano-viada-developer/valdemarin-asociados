@@ -10,6 +10,10 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class AuctionAdmin extends Admin
 {
+    protected $baseRouteName = 'auction';
+
+    protected $baseRoutePattern = 'subastas';
+
     /**
      * Overide getFormTheme()
      */
@@ -66,26 +70,18 @@ class AuctionAdmin extends Admin
         $auction = $this->getSubject();
 
         $formMapper
-            ->add('title', null, array('label' => 'Nombre'))
-            ->add('possessions', null, array('label' => 'Bienes', 'required' => false))
-            ->add('status', 'choice', array(
-                'label' => 'Estado',
-                'required' => false,
-                'choices' => array('vigente' => 'Vigente', 'realizada' => 'Realizada'),
-                'empty_value' => 'Seleccionar...'
-            ))
-            ->add('description', null, array('label' => 'Descripcion', 'required' => false))
-            ->end()
-                ->with('Fotos')
-                ->add('images', 'sonata_type_collection', array(
-                    'label' => false,
-                ), array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'sortable' => 'id',
+            ->with('General', array('class' => 'col-md-6'))
+                ->add('title', null, array('label' => 'Nombre'))
+                ->add('possessions', null, array('label' => 'Bienes', 'required' => false))
+                ->add('status', 'choice', array(
+                    'label' => 'Estado',
+                    'required' => false,
+                    'choices' => array('vigente' => 'Vigente', 'realizada' => 'Realizada'),
+                    'empty_value' => 'Seleccionar...'
                 ))
+                ->add('description', null, array('label' => 'Descripcion', 'required' => false))
             ->end()
-            ->with('Ubicacion')
+            ->with('Ubicacion', array('class' => 'col-md-6'))
                 ->add('file', 'file', array(
                     'label' => 'Archivo PDF',
                     'required' => false,
@@ -93,6 +89,15 @@ class AuctionAdmin extends Admin
                 ))
                 ->add('locality', null, array('label' => 'Localidad'))
                 ->add('conditions', null, array('label' => 'Condiciones'))
+            ->end()
+            ->with('Fotos')
+                ->add('images', 'sonata_type_collection', array(
+                    'label' => false,
+                ), array(
+                    'edit' => 'inline',
+                    'inline' => 'table',
+                    'sortable' => 'id',
+                ))
         ;
     }
 

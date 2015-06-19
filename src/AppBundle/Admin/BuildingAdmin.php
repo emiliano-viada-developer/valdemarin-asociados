@@ -10,6 +10,10 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class BuildingAdmin extends Admin
 {
+    protected $baseRouteName = 'building';
+
+    protected $baseRoutePattern = 'inmuebles';
+
     /**
      * Overide getFormTheme()
      */
@@ -77,50 +81,52 @@ class BuildingAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('reference', null, array('label' => 'Referencia'))
-            ->add('location', null, array('label' => 'Ubicacion', 'required' => true, 'empty_value' => 'Seleccionar...'))
-            ->add('price', null, array('label' => 'Precio', 'help' => '(en dolares)'))
-            ->add('propertyType', null, array(
-                'label' => 'Tipo de Propiedad',
-                'required' => true,
-                'empty_value' => 'Seleccionar...'
-            ))
-            ->add('neighborhood', null, array('label' => 'Zona / Barrio', 'required' => false))
-            ->add('detail', null, array('label' => 'Detalle', 'required' => false))
-            ->add('description', null, array('label' => 'Descripcion', 'required' => false))
-            ->add('featured', null, array('label' => 'Destacado?', 'required' => false))
-            ->add('services', null, array('label' => 'Servicios', 'required' => false))
-            ->add('address', null, array('label' => 'Domicilio', 'required' => false))
-            ->add('operationType', 'choice', array(
-                'label' => 'Tipo de Operacion',
-                'required' => true,
-                'choices' => array('venta' => 'Venta', 'alquiler' => 'Alquiler'),
-                'empty_value' => 'Seleccionar...'
-            ))
-            ->add('frontMts', null, array('label' => 'Frente (mts)', 'required' => false))
-            ->add('backMts', null, array('label' => 'Fondo (mts)', 'required' => false))
-            ->add('surfaceM2', null, array('label' => 'Superficie (mts2)', 'required' => false))
-            ->add('coveredSurface', null, array('label' => 'Sup. Cubierta (mts2)', 'required' => false))
-            ->add('semicoveredSurface', null, array('label' => 'Sup. Semicubierta (mts2)', 'required' => false))
+            ->with('General', array('class' => 'col-md-6'))
+                ->add('reference', null, array('label' => 'Referencia'))
+                ->add('location', null, array('label' => 'Ubicacion', 'required' => true, 'empty_value' => 'Seleccionar...'))
+                ->add('price', null, array('label' => 'Precio', 'help' => '(en dolares)'))
+                ->add('propertyType', null, array(
+                    'label' => 'Tipo de Propiedad',
+                    'required' => true,
+                    'empty_value' => 'Seleccionar...'
+                ))
+                ->add('neighborhood', null, array('label' => 'Zona / Barrio', 'required' => false))
+                ->add('detail', null, array('label' => 'Detalle', 'required' => false))
+                ->add('description', null, array('label' => 'Descripcion', 'required' => false))
+                ->add('featured', null, array('label' => 'Destacado?', 'required' => false))
+                ->add('services', null, array('label' => 'Servicios', 'required' => false))
+                ->add('address', null, array('label' => 'Domicilio', 'required' => false))
+                ->add('operationType', 'choice', array(
+                    'label' => 'Tipo de Operacion',
+                    'required' => true,
+                    'choices' => array('venta' => 'Venta', 'alquiler' => 'Alquiler'),
+                    'empty_value' => 'Seleccionar...'
+                ))
             ->end()
-                ->with('Fotos')
+            ->with('Superficie', array('class' => 'col-md-6'))
+                ->add('frontMts', null, array('label' => 'Frente (mts)', 'required' => false))
+                ->add('backMts', null, array('label' => 'Fondo (mts)', 'required' => false))
+                ->add('surfaceM2', null, array('label' => 'Superficie (mts2)', 'required' => false))
+                ->add('coveredSurface', null, array('label' => 'Sup. Cubierta (mts2)', 'required' => false))
+                ->add('semicoveredSurface', null, array('label' => 'Sup. Semicubierta (mts2)', 'required' => false))
+                ->end()
+            ->with('Mapa', array('class' => 'col-md-6'))
+                ->add('latlng', 'oh_google_maps', array(
+                    'required' => false,
+                    'map_width' => 500,
+                    'map_height' => 350,
+                    'default_lat' => -32.16956899,
+                    'default_lng' => -64.11639129,
+                    'label' => 'Latitud y Longitud'
+                ))
+            ->end()
+            ->with('Fotos')
                 ->add('images', 'sonata_type_collection', array(
                     'label' => false,
-                    //'by_reference' => false,
                 ), array(
                     'edit' => 'inline',
                     'inline' => 'table',
                     'sortable' => 'id',
-                ))
-            ->end()
-                ->with('Mapa')
-                ->add('latlng', 'oh_google_maps', array(
-                    'required' => false,
-                    'map_width' => 600,
-                    'map_height' => 400,
-                    'default_lat' => -32.16956899,
-                    'default_lng' => -64.11639129,
-                    'label' => 'Latitud y Longitud'
                 ))
         ;
     }

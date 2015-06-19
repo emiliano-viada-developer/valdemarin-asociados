@@ -10,6 +10,10 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class LocationAdmin extends Admin
 {
+    protected $baseRouteName = 'location';
+
+    protected $baseRoutePattern = 'ubicaciones';
+
     /**
      * @param DatagridMapper $datagridMapper
      */

@@ -110,13 +110,44 @@ sonata_block:
         # Enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts:   [admin]
+        sonata.admin.block.search_result:
+            contexts: [admin]
 
 sonata_admin:
+    title: 'Valdemarin & Asociados'
+    title_logo: img/logo.jpg
+    options:
+        title_mode: 'single_image'
     security:
         handler: sonata.admin.security.handler.role
     templates:
         layout: AppBundle::admin_layout.html.twig
         user_block: AppBundle:Block:account.html.twig
+    dashboard:
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [admin_inmobiliaria]
+            -
+                position: right
+                type: sonata.admin.block.admin_list
+                settings:
+                    groups: [admin_users]
+
+        groups:
+            admin_inmobiliaria:
+                label: Inmobiliaria
+                items:
+                    - app.admin.building
+                    - app.admin.auction
+                    - app.admin.property_type
+                    - app.admin.location
+            admin_users:
+                label: Administracion
+                items:
+                    - sonata.user.admin.user
 
 # Swiftmailer Configuration
 swiftmailer:

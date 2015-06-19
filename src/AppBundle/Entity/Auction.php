@@ -92,10 +92,20 @@ class Auction
     private $file;
 
 
+    /*** Magic methods ***/
+    /**
+     * __toString()
+     */
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+    /*** END Magic methods ***/
+
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
