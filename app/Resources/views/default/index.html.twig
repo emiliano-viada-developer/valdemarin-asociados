@@ -1,5 +1,358 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Homepage.
+    <section class="sliderControls">
+	    <div>
+	        <span class="slider-prev"></span>
+	        <span class="slider-next"></span>
+	    </div>
+	</section>
+
+	<!-- Slider -->
+	<section class="subHeader home bxslider">
+	    <div id="slide1">
+	        <div class="container">
+	            <div class="col-lg-6">
+	                <h1><span>Title 1</span></h1>
+	                <div class="sliderTextBox">
+		                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam 
+		                eu nisl et lectus tempor pretium pellentesque rhoncus nisl. Sed 
+		                cursus ante eget orci lorem ipsum sodales.</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div id="slide2">
+	        <div class="container">
+	            <div class="col-lg-6">
+	                <h1><span>Title 2</span></h1>
+	                <div class="sliderTextBox">
+		                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam 
+		                eu nisl et lectus tempor pretium pellentesque rhoncus nisl. Sed 
+		                cursus ante eget orci lorem ipsum sodales.</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	    <div id="slide3">
+	        <div class="container">
+	            <div class="col-lg-6">
+	                <h1><span>Title 3</span></h1>
+	                <div class="sliderTextBox">
+		                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam 
+		                eu nisl et lectus tempor pretium pellentesque rhoncus nisl. Sed 
+		                cursus ante eget orci lorem ipsum sodales.</p>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	<!-- END Slider -->
+
+	<!-- start horizontal filter -->
+	<section class="filter">
+	    <div class="container">
+	        <div class="filterHeader">
+	            <ul class="filterNav tabs">
+	                <li><a class="current triangle" href="#tab1">Inmuebles</a></li>
+	                <li><a href="#tab2">Subastas</a></li>
+	            </ul>
+	        </div>
+	        <div class="filterContent defaultTab" id="tab1">
+	            <form method="post" action="#">
+	                <div class="row">
+	                    <div class="col-lg-4 col-md-4 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="propertyType">Property Type</label><br/>
+	                            <select name="property type" id="propertyType" class="formDropdown">
+	                                <option value="">Any</option>
+	                                <option value="Family Home">Family Home</option>
+	                                <option value="Apartment">Apartment</option>
+	                                <option value="Condo">Condo</option>
+	                                <option value="Villa">Villa</option>
+	                            </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4 col-md-4 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="location">Location</label><br/>
+	                        <select name="location" id="location" class="formDropdown">
+	                            <option value="">Any</option>
+	                            <option value="Option 1">Option 1</option>
+	                            <option value="Option 2">Option 2</option>
+	                            <option value="Option 3">Option 3</option>
+	                            <option value="Option 4">Option 4</option>
+	                        </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4 col-md-4 col-sm-6">
+	                        <div class="formBlock">
+	                            <label for="price-min">Price Range</label><br/>
+	                            <div style="float:right; margin-top:-25px;">
+	                                <div class="priceInput"><input type="text" name="price min" id="price-min" class="priceInput" /></div>
+	                                <span style="float:left; margin-right:10px; margin-left:10px;">-</span>
+	                                <div class="priceInput"><input type="text" name="price max" id="price-max" class="priceInput" /></div>
+	                            </div><br/>
+	                            <div class="priceSlider"></div>
+	                            <div class="priceSliderLabel"><span>0</span><span style="float:right;">800,000</span></div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-3 col-md-3 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="beds">Beds</label><br/>
+	                        <select name="beds" id="beds" class="formDropdown">
+	                            <option value="">Any</option>
+	                            <option value="1">1</option>
+	                            <option value="2">2</option>
+	                            <option value="3">3</option>
+	                            <option value="4">4</option>
+	                        </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-3 col-md-3 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="baths">Baths</label><br/>
+	                        <select name="baths" id="baths" class="formDropdown">
+	                            <option value="">Any</option>
+	                            <option value="1">1</option>
+	                            <option value="2">2</option>
+	                            <option value="3">3</option>
+	                            <option value="4">4</option>
+	                        </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-3 col-md-3 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="area">Area (Sq Ft)</label><br/>
+	                        <select name="area" id="area" class="formDropdown">
+	                            <option value="">Any</option>
+	                            <option value="Option 1">Option 1</option>
+	                            <option value="Option 2">Option 2</option>
+	                            <option value="Option 3">Option 3</option>
+	                            <option value="Option 4">Option 4</option>
+	                        </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-3 col-md-3 col-sm-6">
+	                        <div class="formBlock">
+	                            <input class="buttonColor" type="submit" value="FIND PROPERTIES" style="margin-top:24px;">
+	                        </div>
+	                    </div>
+	                    <div style="clear:both;"></div>
+	                </div>
+	            </form>
+	        </div><!-- END TAB1 -->
+	        <div class="filterContent defaultTab" id="tab2">
+	            <form method="post" action="#">
+	                <div class="row">
+	                    <div class="col-lg-4 col-md-4 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="propertyType">Property Type</label><br/>
+	                            <select name="property type" id="propertyType" class="formDropdown">
+	                                <option value="">Any</option>
+	                                <option value="Family Home">Family Home</option>
+	                                <option value="Apartment">Apartment</option>
+	                                <option value="Condo">Condo</option>
+	                                <option value="Villa">Villa</option>
+	                            </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4 col-md-4 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="location">Location</label><br/>
+	                        <select name="location" id="location" class="formDropdown">
+	                            <option value="">Any</option>
+	                            <option value="Option 1">Option 1</option>
+	                            <option value="Option 2">Option 2</option>
+	                            <option value="Option 3">Option 3</option>
+	                            <option value="Option 4">Option 4</option>
+	                        </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-4 col-md-4 col-sm-6">
+	                        <div class="formBlock">
+	                            <label for="price-min">Price Range</label><br/>
+	                            <div style="float:right; margin-top:-25px;">
+	                                <div class="priceInput"><input type="text" name="price min" id="price-min" class="priceInput" /></div>
+	                                <span style="float:left; margin-right:10px; margin-left:10px;">-</span>
+	                                <div class="priceInput"><input type="text" name="price max" id="price-max" class="priceInput" /></div>
+	                            </div><br/>
+	                            <div class="priceSlider"></div>
+	                            <div class="priceSliderLabel"><span>0</span><span style="float:right;">800,000</span></div>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-3 col-md-3 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="beds">Beds</label><br/>
+	                        <select name="beds" id="beds" class="formDropdown">
+	                            <option value="">Any</option>
+	                            <option value="1">1</option>
+	                            <option value="2">2</option>
+	                            <option value="3">3</option>
+	                            <option value="4">4</option>
+	                        </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-3 col-md-3 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="baths">Baths</label><br/>
+	                        <select name="baths" id="baths" class="formDropdown">
+	                            <option value="">Any</option>
+	                            <option value="1">1</option>
+	                            <option value="2">2</option>
+	                            <option value="3">3</option>
+	                            <option value="4">4</option>
+	                        </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-3 col-md-3 col-sm-6">
+	                        <div class="formBlock select">
+	                        <label for="area">Area (Sq Ft)</label><br/>
+	                        <select name="area" id="area" class="formDropdown">
+	                            <option value="">Any</option>
+	                            <option value="Option 1">Option 1</option>
+	                            <option value="Option 2">Option 2</option>
+	                            <option value="Option 3">Option 3</option>
+	                            <option value="Option 4">Option 4</option>
+	                        </select>
+	                        </div>
+	                    </div>
+	                    <div class="col-lg-3 col-md-3 col-sm-6">
+	                        <div class="formBlock">
+	                            <input class="buttonColor" type="submit" value="FIND PROPERTIES" style="margin-top:24px;">
+	                        </div>
+	                    </div>
+	                    <div style="clear:both;"></div>
+	                </div>
+	            </form>
+	        </div><!-- END TAB2 -->
+	    </div><!-- END CONTAINER -->
+	</section>
+	<!-- end horizontal filter -->
+
+	<!-- start big message -->
+	<section class="bigMessage">
+	    <div class="container">
+	        <h1>Valdemar&iacute;n &amp; Asociados</h1><br/>
+	        <p>Gestión integral de compra venta de inmuebles, gestión integral de alquiler de inmuebles, administración, subastas, etc. Declaratorias de herederos, sucesiones, usucupaciones, laborales, contratos, familia, divorcios, asistencia integral.</p>
+	    </div>
+	</section>
+	<!-- end big message -->
+
+	<!-- start recent properties -->
+	<section class="properties">
+	    <div class="container">
+	        <h3>Propiedades Destacadas</h3>
+	        <div class="divider"></div>
+	        <div class="row">
+	            <div class="col-lg-3 col-md-3 col-sm-6">
+	                <div class="propertyItem">
+	                    <div class="propertyContent">
+	                        <a class="propertyType" href="#">FAMILY HOME</a>
+	                        <a href="property_single.html" class="propertyImgLink">
+	                        	<img class="propertyImg" src="img/768x507.gif" alt="" />
+	                        </a>
+	                        <h4><a href="property_single.html">587 Smith Avenue</a></h4>
+	                        <p>Baltimore, MD</p>
+	                        <div class="divider thin"></div>
+	                        <p class="forSale">FOR SALE</p>
+	                        <p class="price">$687,000</p>
+	                    </div>
+	                    <table border="1" class="propertyDetails">
+	                        <tr>
+	                        <td><img src="img/icons/icon-area.png" alt="" style="margin-right:7px;" />2,412m</td>
+	                        <td><img src="img/icons/icon-bed.png" alt="" style="margin-right:7px;" />6 Beds</td>
+	                        <td><img src="img/icons/icon-drop.png" alt="" style="margin-right:7px;" />3 Baths</td>
+	                        </tr>
+	                    </table>
+	                </div>
+	            </div>
+	            <div class="col-lg-3 col-md-3 col-sm-6">
+	                <div class="propertyItem">
+	                    <div class="propertyContent">
+	                        <a class="propertyType" href="#">APARTMENT</a>
+	                        <a href="property_single.html" class="propertyImgLink">
+	                        	<img class="propertyImg" src="img/768x507.gif" alt="" />
+	                        </a>
+	                        <h4><a href="property_single.html">587 Smith Avenue</a></h4>
+	                        <p>Baltimore, MD</p>
+	                        <div class="divider thin"></div>
+	                        <p class="forSale">FOR RENT</p>
+	                        <p class="price">$1,200/mo</p>
+	                    </div>
+	                    <table border="1" class="propertyDetails">
+	                        <tr>
+	                        <td><img src="img/icons/icon-area.png" alt="" style="margin-right:7px;" />2,412m</td>
+	                        <td><img src="img/icons/icon-bed.png" alt="" style="margin-right:7px;" />6 Beds</td>
+	                        <td><img src="img/icons/icon-drop.png" alt="" style="margin-right:7px;" />3 Baths</td>
+	                        </tr>
+	                    </table> 
+	                </div>
+	            </div>
+	            <div class="col-lg-3 col-md-3 col-sm-6">
+	                <div class="propertyItem">
+	                    <div class="propertyContent">
+	                        <a class="propertyType" href="#">CONDO</a>
+	                        <a href="property_single.html" class="propertyImgLink">
+	                        	<img class="propertyImg" src="img/768x507.gif" alt="" />
+	                        </a>
+	                        <h4><a href="property_single.html">587 Smith Avenue</a></h4>
+	                        <p>Baltimore, MD</p>
+	                        <div class="divider thin"></div>
+	                        <p class="forSale">FOR SALE</p>
+	                        <p class="price">$687,000</p>
+	                    </div>
+	                    <table border="1" class="propertyDetails">
+	                        <tr>
+	                        <td><img src="img/icons/icon-area.png" alt="" style="margin-right:7px;" />2,412m</td>
+	                        <td><img src="img/icons/icon-bed.png" alt="" style="margin-right:7px;" />6 Beds</td>
+	                        <td><img src="img/icons/icon-drop.png" alt="" style="margin-right:7px;" />3 Baths</td>
+	                        </tr>
+	                    </table> 
+	                </div>
+	            </div>
+	            <div class="col-lg-3 col-md-3 col-sm-6">
+	                <div class="propertyItem">
+	                    <div class="propertyContent">
+	                        <a class="propertyType" href="#">VILLA</a>
+	                        <a href="property_single.html" class="propertyImgLink">
+	                        	<img class="propertyImg" src="img/768x507.gif" alt="" />
+	                        </a>
+	                        <h4><a href="property_single.html">587 Smith Avenue</a></h4>
+	                        <p>Baltimore, MD</p>
+	                        <div class="divider thin"></div>
+	                        <p class="forSale">FOR SALE</p>
+	                        <p class="price">$687,000</p>
+	                    </div>
+	                    <table border="1" class="propertyDetails">
+	                        <tr>
+	                        <td><img src="img/icons/icon-area.png" alt="" style="margin-right:7px;" />2,412m</td>
+	                        <td><img src="img/icons/icon-bed.png" alt="" style="margin-right:7px;" />6 Beds</td>
+	                        <td><img src="img/icons/icon-drop.png" alt="" style="margin-right:7px;" />3 Baths</td>
+	                        </tr>
+	                    </table> 
+	                </div>
+	            </div>
+	        </div><!-- end row -->
+	    </div><!-- end container -->
+	</section>
+	<!-- end recent properties -->
+
+	<!-- start call to action -->
+	<section class="callToAction">
+	    <div class="container">
+	        <div class="ctaBox">
+	            <div class="col-lg-9">
+	                <h1>Quiero recibir informaci&oacute;n</h1>
+	                <p>Si desea recibir informaci&oacute;n, ya sea de subastas o inmuebles, por favor complete el formulario y en la brevedad nos pondremos en contacto con usted.</p>
+	            </div>
+	            <div class="col-lg-3">
+	                <a style="float:right; margin-top:15px;" class="buttonColor" href="#">Contactanos</a>
+	            </div>
+	            <div style="clear:both;"></div>
+	        </div>
+	    </div>
+	</section>
+	<!-- end call to action -->
+
 {% endblock %}

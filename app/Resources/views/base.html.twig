@@ -2,12 +2,51 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Tasaciones, Administraciones, Departamentos, Desarrollos Inmobiliarios, Loteos, Alquileres, Lotes, Terrenos, Subastas, Remates P&uacute;blicos, Judiciales, Casas, Ventas, Compras Inmobiliarias, Bienes Ra&iacute;ces, Bienes Muebles, Locales, Dep&oacute;sitos, Duplex, Barrio Cerrado, Country, Campos, Sierras de C&oacute;rdoba, Calamuchita, Villa del Dique, Villa Rumipal, Chacras, Quintas, Caba&ntilde;as, Hoteles, Valdemar&iacute;n, Maluf, Valdemarinmaluf" />
+        <meta name="keywords" content="Tasaciones, Administraciones, Departamentos, Desarrollos Inmobiliarios, Loteos, Alquileres, Lotes, Terrenos, Subastas, Remates P&uacute;blicos, Judiciales, Casas, Ventas, Compras Inmobiliarias, Bienes Ra&iacute;ces, Bienes Muebles, Locales, Dep&oacute;sitos, Duplex, Barrio Cerrado, Country, Campos, Sierras de C&oacute;rdoba, Calamuchita, Villa del Dique, Villa Rumipal, Chacras, Quintas, Caba&ntilde;as, Hoteles, Valdemar&iacute;n, Maluf, Valdemarinmaluf, Valdemarin Asociados" />
+        <meta name="robots" content="index,follow" />
+        <meta name="author" content="Emiliano Viada">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{% block title %}Valdemar&iacute;n &amp; Asociados{% endblock %}</title>
+
+        <!-- html5 support in IE8 and later -->
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+
+        {% block stylesheets %}
+            <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+            <link href="{{ asset('css/jquery.bxslider.css') }}" rel="stylesheet" media="screen">
+            <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+            <link href="{{ asset('css/responsive.css') }}" rel="stylesheet" type="text/css" media="all" />
+            <link href="{{ asset('css/yamm.css') }}" rel="stylesheet" type="text/css" media="all" />
+            <link href="{{ asset('css/jquery.nouislider.min.css') }}" rel="stylesheet" type="text/css" media="all" />
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet' type='text/css'>
+        {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
     </head>
+
     <body>
+
+        <!-- Header -->
+        {{ include('header.html.twig') }}
+
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        <!-- Footer -->
+        {{ include('footer.html.twig') }}
+
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery.js') }}"></script>
+            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('js/respond.js') }}"></script>
+            <script src="{{ asset('js/jquery.bxslider.min.js') }}"></script>
+            <script src="{{ asset('js/tabs.js') }}"></script>
+            <script src="{{ asset('js/jquery.nouislider.min.js') }}"></script>
+            <script src="{{ asset('js/app.js') }}"></script>
+        {% endblock %}
     </body>
+
 </html>
