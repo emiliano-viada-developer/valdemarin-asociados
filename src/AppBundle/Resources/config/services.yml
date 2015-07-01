@@ -28,3 +28,19 @@ services:
         arguments: [~, AppBundle\Entity\Media, ~]
         tags:
             - {name: sonata.admin, manager_type: orm, group: Inmobiliaria, label: Fotos}
+
+    # Timestampable behavior
+    gedmo.listener.timestampable:
+        class: Gedmo\Timestampable\TimestampableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]
+
+    # Sluggable behavior
+    gedmo.listener.sluggable:
+        class: Gedmo\Sluggable\SluggableListener
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }
+        calls:
+            - [ setAnnotationReader, [ @annotation_reader ] ]

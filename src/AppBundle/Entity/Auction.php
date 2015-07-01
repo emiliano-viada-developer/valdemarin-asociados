@@ -5,16 +5,19 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Auction
  *
  * @ORM\Table(name="auction")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AppBundle\Entity\AuctionRepository")
  * @ORM\HasLifecycleCallbacks
  */
 class Auction
 {
+    public static $statusOptions = array('vigente' => 'Vigente', 'realizada' => 'Realizada');
+
     /**
      * @var integer
      *
@@ -67,11 +70,10 @@ class Auction
     private $pdfUpdated;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="locality", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="Location")
+     * @ORM\JoinColumn(name="location_id", referencedColumnName="id")
      */
-    private $locality;
+    private $location;
 
     /**
      * @var string
@@ -84,6 +86,26 @@ class Auction
      * @ORM\OneToMany(targetEntity="Media", mappedBy="auction", cascade={"persist"}, orphanRemoval=true)
      */
     protected $images;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255)
+     * @Gedmo\Slug(fields={"title"}, updatable=false, separator="-")
+     */
+    private $slug;
+
+    /**
+     * @ORM\Column(name="created_at", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(name="updated_at", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $updatedAt;
 
     /**
      * Unmapped field ("virtual")
@@ -497,5 +519,97 @@ class Auction
     public function getLocalityImages()
     {
         return $this->localityImages;
+    }
+
+    /**
+     * Set location
+     *
+     * @param \AppBundle\Entity\Location $location
+     * @return Auction
+     */
+    public function setLocation(\AppBundle\Entity\Location $location = null)
+    {
+        $this->location = $location;
+
+        return $this;
+    }
+
+    /**
+     * Get location
+     *
+     * @return \AppBundle\Entity\Location 
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Auction
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     * @return Auction
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     * @return Auction
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime 
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
     }
 }

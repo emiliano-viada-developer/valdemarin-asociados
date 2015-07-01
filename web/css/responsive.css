@@ -14,7 +14,7 @@
 
 /******************** TABLET *********************/
 
-@media only screen and (max-width:990px) { 
+@media only screen and (max-width:990px) {
 
 	.serviceArrow { display:none; }
 
@@ -22,12 +22,13 @@
 
 	.sidebarWidget.submission { height:auto; }
 
-	.masonryRow .col-lg-3 { width:374px; } 
-	.masonryRow .col-lg-3.wide { width:374px; } 
+	.masonryRow .col-lg-3 { width:374px; }
+	.masonryRow .col-lg-3.wide { width:374px; }
 
 	#map-canvas { height:830px; }
 	.filterNav li a { font-size:13px; padding:24px 15px 23px 15px; }
 
+	.propertyImg { height: 242px; }
 }
 
 @media only screen and (max-width:1200px) { 
@@ -65,6 +66,8 @@
 /******************** MOBILE *********************/
 
 @media only screen and (max-width: 767px) {
+
+	.propertyImg { height: 330px; }
 
 	.socialIcons .topBarText { display:inline; }
 
@@ -168,4 +171,5 @@
 	/** FILTER **/
 	.filterNav li a { padding:23px 10px 23px 10px; font-size:13px; }
 
+	.propertyImg { height: 242px; }
 }

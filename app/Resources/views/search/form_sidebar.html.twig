@@ -1,0 +1,78 @@
+<!-- start quick search widget -->
+<h3>Buscar</h3>
+<div class="divider"></div>
+<div class="filterContent defaultTab sidebarWidget">
+    <form method="post" action="{{ form_route }}" novalidate>
+        <div class="row">
+            {% if form.status is defined %}
+	            <div class="col-lg-12 col-md-12 col-sm-6">
+	                <div class="formBlock select">
+		                <label for="propertyType">Estado</label><br/>
+		                {{ form_errors(form.status) }}
+						{{ form_widget(form.status, {'attr': {'class': 'formDropdown'}}) }}
+	                </div>
+	            </div>
+            {% endif %}
+            {% if form.propertyType is defined %}
+	            <div class="col-lg-12 col-md-12 col-sm-6">
+	                <div class="formBlock select">
+		                <label for="propertyType">Tipo de Propiedad</label><br/>
+		                {{ form_errors(form.propertyType) }}
+						{{ form_widget(form.propertyType, {'attr': {'class': 'formDropdown'}}) }}
+	                </div>
+	            </div>
+            {% endif %}
+            {% if form.location is defined %}
+	            <div class="col-lg-12 col-md-12 col-sm-6">
+	                <div class="formBlock select">
+	                	<label for="location">Ubicaci&oacute;n</label><br/>
+	                	{{ form_errors(form.location) }}
+						{{ form_widget(form.location, {'attr': {'class': 'formDropdown'}}) }}
+	                </div>
+	            </div>
+            {% endif %}
+            {% if form.operationType is defined %}
+	            <div class="col-lg-12 col-md-12 col-sm-6">
+	                <div class="formBlock select">
+		                <label for="operationType">Tipo de Operaci&oacute;n</label><br/>
+		                {{ form_errors(form.operationType) }}
+						{{ form_widget(form.operationType, {'attr': {'class': 'formDropdown'}}) }}
+	                </div>
+	            </div>
+            {% endif %}
+            {% if form.surfaceM2 is defined %}
+	            <div class="col-lg-12 col-md-12 col-sm-6">
+	                <div class="formBlock select">
+		                <label for="surface">Superficie (mts2)</label><br/>
+		                {{ form_errors(form.surfaceM2) }}
+						{{ form_widget(form.surfaceM2, {'attr': {'class': 'formDropdown'}}) }}
+	                </div>
+	            </div>
+            {% endif %}
+            {% if form.price_min is defined and form.price_max is defined %}
+            	<div class="col-lg-12 col-md-12 col-sm-6">
+                    <div class="formBlock">
+                        <label for="price-min">Rango de Precio</label><br/>
+                        <div>
+                            <div class="priceInput">
+                            	{{ form_widget(form.price_min, {'attr': {'class': 'priceInput'}}) }}
+                            </div>
+                            <span style="float:left; margin-right:10px; margin-left:10px;">-</span>
+                            <div class="priceInput">
+                            	{{ form_widget(form.price_max, {'attr': {'class': 'priceInput'}}) }}
+                            </div>
+                        </div><br/>
+                        <div style="margin-top: 20px;" class="priceSlider"></div>
+                        <div style="margin-bottom: 0px;" class="priceSliderLabel"><span>0</span><span style="float:right;">2.000.000</span></div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="col-lg-12 col-md-12 col-sm-6">
+                <div class="formBlock">
+                    <input class="buttonColor" type="submit" value="Buscar" style="margin-top:24px;">
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div><!-- end row -->
+    </form><!-- end form -->
+</div><!-- end quick search widget -->

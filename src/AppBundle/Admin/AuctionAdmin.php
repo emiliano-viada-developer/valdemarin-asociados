@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use AppBundle\Entity\Auction;
 
 class AuctionAdmin extends Admin
 {
@@ -37,7 +38,7 @@ class AuctionAdmin extends Admin
             ->add('status')
             ->add('description')
             ->add('pdf')
-            ->add('locality')
+            ->add('location')
             ->add('conditions')
         ;
     }
@@ -51,7 +52,7 @@ class AuctionAdmin extends Admin
             ->add('id')
             ->addIdentifier('title', null, array('label' => 'Nombre'))
             ->add('status', null, array('label' => 'Estado'))
-            ->add('locality', null, array('label' => 'Localidad'))
+            ->add('location', null, array('label' => 'Localidad'))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -76,7 +77,7 @@ class AuctionAdmin extends Admin
                 ->add('status', 'choice', array(
                     'label' => 'Estado',
                     'required' => false,
-                    'choices' => array('vigente' => 'Vigente', 'realizada' => 'Realizada'),
+                    'choices' => Auction::$statusOptions,
                     'empty_value' => 'Seleccionar...'
                 ))
                 ->add('description', null, array('label' => 'Descripcion', 'required' => false))
@@ -87,7 +88,7 @@ class AuctionAdmin extends Admin
                     'required' => false,
                     'help' => ($auction->getPdf())? $auction->getPdf() : ''
                 ))
-                ->add('locality', null, array('label' => 'Localidad'))
+                ->add('location', null, array('label' => 'Localidad', 'required' => true, 'empty_value' => 'Seleccionar...'))
                 ->add('conditions', null, array('label' => 'Condiciones'))
             ->end()
             ->with('Fotos')
@@ -113,7 +114,7 @@ class AuctionAdmin extends Admin
             ->add('status')
             ->add('description')
             ->add('pdf')
-            ->add('locality')
+            ->add('location')
             ->add('conditions')
         ;
     }

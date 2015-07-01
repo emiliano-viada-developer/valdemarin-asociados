@@ -580,7 +580,7 @@ textarea { height:130px; width:100% !important; }
 	margin-top:108px;
 	padding:65px 0px 65px 0px;
 	background-color:#4a4763;
-	background-image: url('../images/subHeader-page-bg.jpg');
+	background-image: url('/img/subHeader-page-bg.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 }
@@ -800,11 +800,16 @@ textarea { height:130px; width:100% !important; }
 }
 
 .propertyContent { padding:9px; }
-.propertyContent a { color:#2a2a2a; }
+.propertyContent a {
+	color: #2a2a2a;
+	min-height: 19px;
+	display: inline-block;
+}
 .propertyContent a:hover { color:#4a4786; }
 
 .propertyImg {
 	max-width:100%;
+	height: 161px;
 	margin-bottom:15px;
 }
 

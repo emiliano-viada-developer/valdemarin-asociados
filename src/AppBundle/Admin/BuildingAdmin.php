@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use AppBundle\Entity\Building;
 
 class BuildingAdmin extends Admin
 {
@@ -99,7 +100,7 @@ class BuildingAdmin extends Admin
                 ->add('operationType', 'choice', array(
                     'label' => 'Tipo de Operacion',
                     'required' => true,
-                    'choices' => array('venta' => 'Venta', 'alquiler' => 'Alquiler'),
+                    'choices' => Building::$operationTypeOptions,
                     'empty_value' => 'Seleccionar...'
                 ))
             ->end()

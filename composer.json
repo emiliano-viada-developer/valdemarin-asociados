@@ -33,7 +33,8 @@
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
         "sonata-project/easy-extends-bundle": "~2.1",
         "sonata-project/user-bundle": "~2.2",
-        "oh/google-map-form-type-bundle": "dev-master"
+        "oh/google-map-form-type-bundle": "dev-master",
+        "gedmo/doctrine-extensions": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [

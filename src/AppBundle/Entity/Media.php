@@ -56,6 +56,14 @@ class Media
 
 
     /**
+     * __toString() magic method
+     */
+    public function __toString()
+    {
+        return $this->getWebPath();
+    }
+
+    /**
      * Sets file.
      *
      * @param UploadedFile $file
