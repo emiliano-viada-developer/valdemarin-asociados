@@ -31,6 +31,23 @@ class DefaultController extends Controller
     }
 
     /**
+	 * @Route("/inmueble/{slug}", name="view_building")
+     */
+    public function viewBuildingAction($slug)
+    {
+		$em = $this->getDoctrine()->getManager();
+    	$building = $em->getRepository('AppBundle:Building')->find($slug);
+
+	    if (!$building) {
+	        throw $this->createNotFoundException(
+	            'No building found for reference '.$slug
+	        );
+	    }
+
+	    var_dump($building);die;
+    }
+
+    /**
      * @Route("/inmuebles/buscar/", name="building_search")
      */
     public function buildingSearchAction(Request $request)

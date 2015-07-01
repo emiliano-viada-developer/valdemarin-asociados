@@ -166,14 +166,14 @@
 			                <div class="propertyItem">
 			                    <div class="propertyContent">
 			                        <span class="propertyType">{{ building.propertyType }}</span>
-			                        <a href="property_single.html" class="propertyImgLink">
+			                        <a href="{{ path('view_building', {'slug': building.slug}) }}" class="propertyImgLink">
 			                        	{% if building.images|first|length %}
 			                        		<img class="propertyImg" src="{{ building.images|first }}" alt="" />
 		                        		{% else %}
 			                        		<img class="propertyImg" src="img/768x507.gif" alt="" />
 		                        		{% endif %}
 			                        </a>
-			                        <h4><a href="property_single.html">{{ building.address }}</a></h4>
+			                        <h4><a href="{{ path('view_building', {'slug': building.slug}) }}">{{ building.address }}</a></h4>
 			                        <p>{{ building.location }}</p>
 			                        <div class="divider thin"></div>
 			                        <p class="forSale">{{ building.operationType }}</p>

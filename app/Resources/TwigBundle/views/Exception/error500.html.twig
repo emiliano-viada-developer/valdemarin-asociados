@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+	<!-- start subheader -->
+	<section class="subHeader page">
+	    <div class="container">
+	    	<h1>Error 500</h1>
+	    </div><!-- end subheader container -->
+	</section><!-- end subheader section -->
+
+	<!-- start main content -->
+	<section class="properties">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-6 col-lg-offset-3 error-404">
+	                <h1>500</h1><br/><br/>
+	                <p>Error en el servidor!<br/>
+	                Puedes hacer click aqu&iacute; para regresar a la <a href="{{ path('homepage') }}">homepage.</a></p><br/>
+	            </div>
+	        </div>
+	    </div><!-- end container -->
+	</section>
+	<!-- end main content -->
+
+	<!-- Contact CTA -->
+	{{ include('default/contact_cta.html.twig') }}
+
+{% endblock %}

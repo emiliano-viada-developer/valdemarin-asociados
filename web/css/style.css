@@ -1252,7 +1252,7 @@ textarea { height:130px; width:100% !important; }
 
 /** 404 **/
 .error-404 {
-	background:url('../images/icon-search-big.png');
+	background:url('../img/icons/icon-search-big.png');
 	background-repeat:no-repeat;
 	background-position:56% 0;
 	text-align:center;
