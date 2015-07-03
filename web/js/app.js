@@ -54,4 +54,17 @@ $(function() {
 		    }
 		});
 	}
+
+	// Setup images slider
+	var $imgsSlider = $(".bxslider2");
+
+	if ($imgsSlider.length) {
+		$imgsSlider.bxSlider({
+		    pagerCustom: '#bx-pager',
+		    nextSelector: '.slider-next',
+		    prevSelector: '.slider-prev',
+		    nextText: '<img src="/img/slider-next2.png" alt="Siguiente" />',
+		    prevText: '<img src="/img/slider-prev2.png" alt="Anterior" />'
+	    });
+	}
 });

@@ -92,10 +92,22 @@ class BuildingAdmin extends Admin
                     'empty_value' => 'Seleccionar...'
                 ))
                 ->add('neighborhood', null, array('label' => 'Zona / Barrio', 'required' => false))
-                ->add('detail', null, array('label' => 'Detalle', 'required' => false))
-                ->add('description', null, array('label' => 'Descripcion', 'required' => false))
+                ->add('detail', null, array(
+                    'label' => 'Detalle',
+                    'required' => false,
+                    'attr' => array('class' => 'ckeditor')
+                ))
+                ->add('description', null, array(
+                    'label' => 'Descripcion',
+                    'required' => false,
+                    'attr' => array('class' => 'ckeditor')
+                ))
                 ->add('featured', null, array('label' => 'Destacado?', 'required' => false))
-                ->add('services', null, array('label' => 'Servicios', 'required' => false))
+                ->add('services', null, array(
+                    'label' => 'Servicios',
+                    'required' => false,
+                    'attr' => array('class' => 'ckeditor')
+                ))
                 ->add('address', null, array('label' => 'Domicilio', 'required' => false))
                 ->add('operationType', 'choice', array(
                     'label' => 'Tipo de Operacion',

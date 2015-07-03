@@ -36,7 +36,7 @@ class DefaultController extends Controller
     public function viewBuildingAction($slug)
     {
 		$em = $this->getDoctrine()->getManager();
-    	$building = $em->getRepository('AppBundle:Building')->find($slug);
+    	$building = $em->getRepository('AppBundle:Building')->findOneBySlug($slug);
 
 	    if (!$building) {
 	        throw $this->createNotFoundException(
@@ -44,7 +44,15 @@ class DefaultController extends Controller
 	        );
 	    }
 
-	    var_dump($building);die;
+	    // Sidebar form
+		$formRoute = $this->get('router')->generate('building_search');
+		$form = $this->createForm(new BuildingSearcherType());
+
+	    return $this->render('default/view_building.html.twig', array(
+	    	'building' => $building,
+	    	'form_route' => $formRoute,
+    		'form' => $form->createView()
+    	));
     }
 
     /**
