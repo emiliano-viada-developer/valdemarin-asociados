@@ -31,6 +31,50 @@ class DefaultController extends Controller
     }
 
     /**
+	 * @Route("/inmuebles", name="listing_building")
+     */
+    public function listingBuildingAction()
+    {
+    	$em = $this->getDoctrine()->getManager();
+    	$results = $em->getRepository('AppBundle:Building')->findAll();
+
+		$viewDetailRoute = 'view_building';
+		// Sidebar form
+		$formRoute = $this->get('router')->generate('building_search');
+		$form = $this->createForm(new BuildingSearcherType());
+
+    	return $this->render('search/listing.html.twig', array(
+    		'type' => 'Inmuebles',
+    		'results' => $results,
+    		'view_detail_route' => $viewDetailRoute,
+    		'form_route' => $formRoute,
+    		'form' => $form->createView()
+		));
+    }
+
+    /**
+	 * @Route("/subastas", name="listing_auction")
+     */
+    public function listingAuctionAction()
+    {
+    	$em = $this->getDoctrine()->getManager();
+    	$results = $em->getRepository('AppBundle:Auction')->findAll();
+
+		$viewDetailRoute = 'view_auction';
+		// Sidebar form
+		$formRoute = $this->get('router')->generate('auction_search');
+		$form = $this->createForm(new AuctionSearcherType());
+
+    	return $this->render('search/listing.html.twig', array(
+    		'type' => 'Subastas',
+    		'results' => $results,
+    		'view_detail_route' => $viewDetailRoute,
+    		'form_route' => $formRoute,
+    		'form' => $form->createView()
+		));
+    }
+
+    /**
 	 * @Route("/inmueble/{slug}", name="view_building")
      */
     public function viewBuildingAction($slug)
@@ -130,5 +174,13 @@ class DefaultController extends Controller
     		'form_route' => $formRoute,
     		'form' => $form->createView()
 		));
+    }
+
+    /**
+     * @Route("/contacto", name="contact")
+     */
+    public function contactAction()
+    {
+    	return $this->render('default/contact.html.twig');
     }
 }

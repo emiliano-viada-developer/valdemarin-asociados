@@ -24,16 +24,22 @@
 	        </a>
 	    </div>
 	    <div class="navbar-collapse collapse">
-
+	    	{% set route = app.request.get('_route') %}
 	        <ul class="nav navbar-nav">
+	            {% set home_class = (route == 'homepage')? 'current' : '' %}
 	            <li class="dropdown menu-item-has-children">
-	                <a href="{{ path('homepage') }}" class="current">HOME</a>
+	                <a href="{{ path('homepage') }}" class="{{ home_class }}">HOME</a>
 	            </li>
 	            <li class="dropdown menu-item-has-children">
-	                <a href="listing_grid.html">LISTINGS</a>
+	                <a href="javascript:void(0)">LISTAR</a>
+	                <ul class="dropdown-menu">
+	                    <li><a href="{{ path('listing_building') }}">Inmuebles</a></li>
+	                    <li><a href="{{ path('listing_auction') }}">SUBASTAS</a></li>
+                    </ul>
 	            </li>
+	            {% set contact_class = (route == 'contact')? 'current' : '' %}
 	            <li class="dropdown menu-item-has-children">
-	                <a href="agent_listing_grid.html">OUR AGENTS</a>
+	                <a href="{{ path('contact') }}" class="{{ contact_class }}">Cont&aacute;ctenos</a>
 	            </li>
 	            <li class="dropdown menu-item-has-children">
 	                <a href="blog_classic.html">BLOG</a>

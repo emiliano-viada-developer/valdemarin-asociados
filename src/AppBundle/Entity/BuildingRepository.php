@@ -87,4 +87,12 @@ class BuildingRepository extends EntityRepository
 
         return $q->getQuery()->getResult();
 	}
+
+    /**
+     * findAll() method
+     */
+    public function findAll()
+    {
+        return $this->findBy(array(), array('createdAt' => 'DESC'));
+    }
 }

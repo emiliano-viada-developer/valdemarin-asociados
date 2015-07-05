@@ -4,7 +4,9 @@
 	<!-- start subheader -->
 	<section class="subHeader page">
 	    <div class="container">
-	    	<h1>Buscador de {{ type }}</h1>
+	    	{% set page_type = (app.request.get('_route') == 'listing_building' or app.request.get('_route') == 'listing_auction')? 'Listado' : 'Buscador' %}
+	    	<h1>{{ page_type }} de {{ type }}</h1>
+	    	}
 	    </div><!-- end subheader container -->
 	</section><!-- end subheader section -->
 
