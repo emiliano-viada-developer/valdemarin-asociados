@@ -5,7 +5,7 @@
 	<!-- start subheader -->
 	<section class="subHeader page">
 	    <div class="container">
-	    	<h1>Inmueble {{ building.reference }}</h1>
+	    	<h1>Subasta {{ auction.title }}</h1>
 	    </div><!-- end subheader container -->
 	</section><!-- end subheader section -->
 
@@ -17,16 +17,16 @@
 	            <!-- start content -->
 	            <div class="col-lg-9 col-md-9">
 	                <!-- start gallery -->
-	                {% if building.images|length > 0 %}
+	                {% if auction.images|length > 0 %}
 		                <div class="gallery">
 		                    <ul class="bxslider2">
-		                      	{% for image in building.images %}
+		                      	{% for image in auction.images %}
 		                      		<li><img src="{{ asset(image) }}" alt="Inmueble" /></li>
 	                      		{% endfor %}
 		                    </ul>
 
 		                    <div id="bx-pager">
-		                      	{% for image in building.images %}
+		                      	{% for image in auction.images %}
 		                      		<a class="thumbnail" data-slide-index="{{ loop.index0 }}" href="">
 		                      			<img src="{{ asset(image) }}" alt="Inmueble" />
 		                      		</a>
@@ -46,36 +46,35 @@
 	                        <div class="overview">
 	                        <h4>DATOS</h4>
 	                        <ul class="overviewList">
-	                            <li>Tipo Propiedad <span>{{ building.propertyType }}</span></li>
-	                            <li>Tipo Operaci&oacute;n <span>{{ building.operationType|capitalize }}</span></li>
-	                            <li>Localidad <span>{{ building.location }}</span></li>
-	                            <li>Frente (mts) <span>{{ building.frontMts }}</span></li>
-	                            <li>Fondo (mts) <span>{{ building.backMts }}</span></li>
-	                            <li>Superficie (mts2) <span>{{ building.surfaceM2 }}</span></li>
-	                            <li>Sup. Cubierta (mts2) <span>{{ building.coveredSurface }}</span></li>
-	                            <li>Sup. Semicubierta (mts2) <span>{{ building.semicoveredSurface }}</span></li>
+	                            <li>Localidad <span>{{ auction.location }}</span></li>
+	                            <li>Estado <span>{{ auction.status }}</span></li>
+	                            <li>
+	                            	PDF
+	                            	{% if auction.pdf is not null %}
+	                            		<span>
+	                            			<a href="/{{ auction.getWebPath }}" target="_blank">
+	                            				<img src="{{ asset('img/icons/pdf-icon.png') }}" width="30" alt="archivo PDF">
+	                            			</a>
+	                            		</span>
+                            		{% endif %}
+	                            </li>
 	                        </ul>
 	                        </div>
-	                        <!-- Map -->
-	                        {% set lat = (building.latitude is not null)? building.latitude : -32.16956899 %}
-                        	{% set long = (building.longitude is not null)? building.longitude : -64.11639129 %}
-	                        <div id="map-canvas-one-pin" class="mapSmall" data-lat="{{ lat }}" data-long="{{ long }}"></div>
 	                    </div>
 
 	                    <div class="col-lg-8">
-	                        <p class="price" style="float:right;">${{ building.price|number_format(0, ',', '.') }}</p>
-	                        <p class="forSale" style="float:right; margin-right:20px;">{{ building.operationType|upper }}</p>
-	                        <h1>Inmueble {{ building.reference }}</h1>
-	                        <p>{{ building.address }}, {{ building.location }}</p>
-	                        <p>{{ building.description|raw }}</p><br/>
+	                        <p class="forSale" style="float:right; margin-right:20px;">{{ auction.status|upper }}</p>
+	                        <h1>Subasta {{ auction.title }}</h1>
+	                        <p>{{ auction.location }}</p>
+	                        <p>{{ auction.description|raw }}</p><br/>
 
-	                        <h4>DETALLE</h4>
+	                        <h4>CONDICIONES</h4>
 	                        <div class="divider thin"></div>
-	                        <p>{{ building.detail|raw }}</p><br/>
+	                        <p>{{ auction.conditions|raw }}</p><br/>
 
-	                        <h4>SERVICIOS</h4>
+	                        <h4>BIENES</h4>
 	                        <div class="divider thin"></div>
-	                        <p>{{ building.services|raw }}</p><br/>
+	                        <p>{{ auction.possessions|raw }}</p><br/>
 
 	                        <table border="1" class="agentDetails">
                             	<tr>
@@ -107,13 +106,5 @@
 
 	<!-- Contact CTA -->
 	{{ include('default/contact_cta.html.twig') }}
-
-{% endblock %}
-
-{% block javascripts %}
-	{{ parent() }}
-
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-	<script type="text/javascript" src="{{ asset('js/map-one-pin.js') }}"></script>
 
 {% endblock %}

@@ -73,14 +73,22 @@ class AuctionAdmin extends Admin
         $formMapper
             ->with('General', array('class' => 'col-md-6'))
                 ->add('title', null, array('label' => 'Nombre'))
-                ->add('possessions', null, array('label' => 'Bienes', 'required' => false))
+                ->add('possessions', null, array(
+                    'label' => 'Bienes',
+                    'required' => false,
+                    'attr' => array('class' => 'ckeditor')
+                ))
                 ->add('status', 'choice', array(
                     'label' => 'Estado',
                     'required' => false,
                     'choices' => Auction::$statusOptions,
                     'empty_value' => 'Seleccionar...'
                 ))
-                ->add('description', null, array('label' => 'Descripcion', 'required' => false))
+                ->add('description', null, array(
+                    'label' => 'Descripcion',
+                    'required' => false,
+                    'attr' => array('class' => 'ckeditor')
+                ))
             ->end()
             ->with('Ubicacion', array('class' => 'col-md-6'))
                 ->add('file', 'file', array(
@@ -89,7 +97,10 @@ class AuctionAdmin extends Admin
                     'help' => ($auction->getPdf())? $auction->getPdf() : ''
                 ))
                 ->add('location', null, array('label' => 'Localidad', 'required' => true, 'empty_value' => 'Seleccionar...'))
-                ->add('conditions', null, array('label' => 'Condiciones'))
+                ->add('conditions', null, array(
+                    'label' => 'Condiciones',
+                    'attr' => array('class' => 'ckeditor')
+                ))
             ->end()
             ->with('Fotos')
                 ->add('images', 'sonata_type_collection', array(

@@ -56,6 +56,31 @@ class DefaultController extends Controller
     }
 
     /**
+	 * @Route("/subasta/{slug}", name="view_auction")
+     */
+    public function viewAuctionAction($slug)
+    {
+		$em = $this->getDoctrine()->getManager();
+    	$auction = $em->getRepository('AppBundle:Auction')->findOneBySlug($slug);
+
+	    if (!$auction) {
+	        throw $this->createNotFoundException(
+	            'No auction found for name '.$slug
+	        );
+	    }
+
+	    // Sidebar form
+		$formRoute = $this->get('router')->generate('auction_search');
+		$form = $this->createForm(new AuctionSearcherType());
+
+	    return $this->render('default/view_auction.html.twig', array(
+	    	'auction' => $auction,
+	    	'form_route' => $formRoute,
+    		'form' => $form->createView()
+    	));
+    }
+
+    /**
      * @Route("/inmuebles/buscar/", name="building_search")
      */
     public function buildingSearchAction(Request $request)
@@ -64,6 +89,7 @@ class DefaultController extends Controller
     	$buildingSearcher = $request->request->get('building_searcher');
 		$results = $em->getRepository('AppBundle:Building')->search($buildingSearcher);
 
+		$viewDetailRoute = 'view_building';
 		// Sidebar form
 		$formRoute = $this->get('router')->generate('building_search');
 		$form = $this->createForm(new BuildingSearcherType());
@@ -74,6 +100,7 @@ class DefaultController extends Controller
     	return $this->render('search/listing.html.twig', array(
     		'type' => 'Inmuebles',
     		'results' => $results,
+    		'view_detail_route' => $viewDetailRoute,
     		'form_route' => $formRoute,
     		'form' => $form->createView()
 		));
@@ -88,6 +115,7 @@ class DefaultController extends Controller
     	$auctionSearcher = $request->request->get('auction_searcher');
 		$results = $em->getRepository('AppBundle:Auction')->search($auctionSearcher);
 
+		$viewDetailRoute = 'view_auction';
 		// Sidebar form
 		$formRoute = $this->get('router')->generate('auction_search');
 		$form = $this->createForm(new AuctionSearcherType());
@@ -98,6 +126,7 @@ class DefaultController extends Controller
     	return $this->render('search/listing.html.twig', array(
     		'type' => 'Subastas',
     		'results' => $results,
+    		'view_detail_route' => $viewDetailRoute,
     		'form_route' => $formRoute,
     		'form' => $form->createView()
 		));

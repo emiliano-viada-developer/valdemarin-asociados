@@ -24,7 +24,7 @@
 				                        <div class="propertyContent row">
 				                            {% set title = (type == 'Inmuebles')? 'Referencia ' ~ item.reference : item.title %}
 				                            <div class="col-lg-5 col-md-5 col-sm-5">
-				                            	<a href="agent_single.html" class="propertyImgLink">
+				                            	<a href="{{ path(view_detail_route, {'slug': item.slug}) }}" class="propertyImgLink">
 				                            		{% if item.images|first|length %}
 						                        		<img class="propertyImg" src="{{ asset(item.images|first) }}" alt="{{ title }}" />
 					                        		{% else %}
@@ -33,7 +33,9 @@
 				                            	</a>
 				                            </div>
 				                            <div class="col-lg-7 col-md-7 col-sm-7 rowText agentRow">
-				                            	<h4><a href="agent_single.html">{{ title }}</a></h4>
+				                            	<h4><a href="{{ path(view_detail_route, {'slug': item.slug}) }}">
+				                            		{{ title }}
+				                            	</a></h4>
 				                            	<br/>
 				                            	<p>
 				                            		{% if type == 'Inmuebles' and item.address != null %}
@@ -52,7 +54,9 @@
 				                                			</ul>
 				                                		</td>
 				                                		<td>
-			                                				<a href="agent_single.html" class="buttonGrey">Ver Detalle</a>
+			                                				<a href="{{ path(view_detail_route, {'slug': item.slug}) }}" class="buttonGrey">
+			                                					Ver Detalle
+			                                				</a>
 				                                		</td>
 				                                	</tr>
 				                            	</table>

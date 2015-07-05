@@ -924,14 +924,32 @@ textarea { height:130px; width:100% !important; }
 .gallery:hover .sliderControls span { opacity:1.0; }
 .gallery .sliderControls .slider-prev { float:left; margin-left:35px; }
 .gallery .sliderControls .slider-next { float:right; margin-right:60px; }
-.gallery #bx-pager { 
+.gallery #bx-pager {
 	text-align:center;
-	background-color:white; 
+	background-color:white;
 	padding:10px;
 	margin-bottom:40px;
  }
 
-.gallery #bx-pager a img { opacity:0.6; }
+.gallery #bx-pager .thumbnail {
+	position: relative;
+	display: inline-block;
+  	width: 112px;
+  	height: 112px;
+  	overflow: hidden;
+}
+.gallery #bx-pager a.thumbnail img {
+	opacity:0.6;
+	position: absolute;
+  	left: 50%;
+  	top: 50%;
+  	height: 100%;
+  	width: auto;
+  	max-width: none;
+  	-webkit-transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
+    		transform: translate(-50%,-50%);
+}
 .gallery #bx-pager a.active img { opacity:1.0; }
 
 .overview {
