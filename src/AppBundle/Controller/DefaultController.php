@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Form\Type\BuildingSearcherType;
 use AppBundle\Form\Type\AuctionSearcherType;
+use AppBundle\Form\Type\ContactType;
 
 class DefaultController extends Controller
 {
@@ -179,8 +180,37 @@ class DefaultController extends Controller
     /**
      * @Route("/contacto", name="contact")
      */
-    public function contactAction()
+    public function contactAction(Request $request)
     {
-    	return $this->render('default/contact.html.twig');
+    	$form = $this->createForm(new ContactType());
+
+    	if ($request->isMethod('POST')) {
+			$form->handleRequest($request);
+
+			if ($form->isValid()) {
+				// Send the email
+				$data = $form->getData();
+				$message = \Swift_Message::newInstance()
+			        ->setSubject('Formulario de contacto | valdemarinasociados.com.ar')
+			        ->setFrom($data['email'])
+			        ->setTo('emjovi@gmail.com')
+			        ->setBody(
+			            $this->renderView(
+			                'email/contact.html.twig',
+			                array('data' => $data)
+			            ),
+			            'text/html'
+			        )
+			    ;
+			    $this->get('mailer')->send($message);
+
+				$request->getSession()->getFlashBag()->add('success', 'El formulario se ha enviado exitosamente!');
+				$form = $this->createForm(new ContactType());
+			}
+		}
+
+    	return $this->render('default/contact.html.twig', array(
+    		'form' => $form->createView()
+		));
     }
 }

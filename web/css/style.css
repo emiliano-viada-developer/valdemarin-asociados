@@ -125,6 +125,12 @@ a:hover { color:#9dd356; text-decoration:none; }
 
 .genericSection { padding:70px 0px 70px 0px; }
 
+/* TEXT ALIGNMENTS */
+.txtC { text-align: center; }
+
+/* SPACES */
+.mbl, .mal { margin-bottom: 20px; }
+
 /* BUTTONS */
 .buttonColor {
 	font-family:Open Sans;
@@ -1421,6 +1427,16 @@ textarea { height:130px; width:100% !important; }
 }
 
 span.error { 
+	display:inline-block; 
+	margin-bottom:25px; 
+	padding:0px 3px 0px 3px;
+	border-radius:3px;
+}
+
+.has-error ul li {
+	background-color:#f1d9d9;
+	border-color:#c44747;
+	color:#c44747;
 	display:inline-block; 
 	margin-bottom:25px; 
 	padding:0px 3px 0px 3px;
