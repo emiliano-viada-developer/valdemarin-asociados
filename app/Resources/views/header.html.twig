@@ -27,7 +27,7 @@
 	    	{% set route = app.request.get('_route') %}
 	        <ul class="nav navbar-nav">
 	            {% set home_class = (route == 'homepage')? 'current' : '' %}
-	            <li class="dropdown menu-item-has-children">
+	            <li class="dropdown">
 	                <a href="{{ path('homepage') }}" class="{{ home_class }}">HOME</a>
 	            </li>
 	            <li class="dropdown menu-item-has-children">
@@ -39,19 +39,22 @@
 	            </li>
 	            {% set contact_class = (route == 'contact')? 'current' : '' %}
 	            <li class="dropdown menu-item-has-children">
-	                <a href="{{ path('contact') }}" class="{{ contact_class }}">Cont&aacute;ctenos</a>
+	                <a href="{{ path('contact') }}" class="{{ contact_class }}">CONTACTO</a>
+	                <ul class="dropdown-menu">
+	                    <li><a href="{{ path('contact') }}">Cont&aacute;ctenos</a></li>
+	                    <li><a href="">Quiero Recibir Informaci&oacute;n</a></li>
+	                    <li><a href="">Haga Su Pedido</a></li>
+	                    <li><a href="">Ofrezca Su Propiedad</a></li>
+                    </ul>
 	            </li>
+	            {% set about_class = (route == 'legal_advice')? 'current' : '' %}
 	            <li class="dropdown menu-item-has-children">
-	                <a href="blog_classic.html">BLOG</a>
-	            </li>
-	            <li class="dropdown menu-item-has-children">
-	                <a href="about.html">PAGES</a>
-	            </li>
-	            <li class="dropdown yamm-fw">
-	                <a href="#" class="dropdown-toggle">MEGA MENU</a>
-	            </li>
-	            <li class="dropdown menu-item-has-children">
-	                <a href="contact.php">CONTACT</a>
+	                <a href="{{ path('legal_advice') }}" class="{{ about_class }}">ACERCA DE NOSOTROS</a>
+	                <ul class="dropdown-menu">
+	                    <li><a href="{{ path('legal_advice') }}">Estudio Ju&iacute;dico</a></li>
+	                    <li><a href="">Nuestros Servicios</a></li>
+	                    <li><a href="">Qui&eacute;nes Somos?</a></li>
+                    </ul>
 	            </li>
 	        </ul>
 	    </div><!--/.navbar-collapse -->

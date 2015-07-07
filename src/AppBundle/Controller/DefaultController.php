@@ -213,4 +213,12 @@ class DefaultController extends Controller
     		'form' => $form->createView()
 		));
     }
+
+    /**
+     * @Route("/acerca/estudio-juridico", name="legal_advice")
+     */
+    public function legalAdviceAction()
+    {
+    	return $this->render('about/legal_advice.html.twig');
+    }
 }

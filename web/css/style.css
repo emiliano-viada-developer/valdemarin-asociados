@@ -129,7 +129,9 @@ a:hover { color:#9dd356; text-decoration:none; }
 .txtC { text-align: center; }
 
 /* SPACES */
-.mbl, .mal { margin-bottom: 20px; }
+.pt30, .pa30 { padding-top: 30px !important; }
+.pb30, .pa30 { padding-bottom: 30px !important; }
+.mbl, .mal { margin-bottom: 20px !important; }
 
 /* BUTTONS */
 .buttonColor {
