@@ -37,13 +37,13 @@
 	                    <li><a href="{{ path('listing_auction') }}">SUBASTAS</a></li>
                     </ul>
 	            </li>
-	            {% set contact_class = (route == 'contact')? 'current' : '' %}
+	            {% set contact_class = (route == 'contact' or route == 'make_request')? 'current' : '' %}
 	            <li class="dropdown menu-item-has-children">
 	                <a href="{{ path('contact') }}" class="{{ contact_class }}">CONTACTO</a>
 	                <ul class="dropdown-menu">
 	                    <li><a href="{{ path('contact') }}">Cont&aacute;ctenos</a></li>
 	                    <li><a href="">Quiero Recibir Informaci&oacute;n</a></li>
-	                    <li><a href="">Haga Su Pedido</a></li>
+	                    <li><a href="{{ path('make_request') }}">Haga Su Pedido</a></li>
 	                    <li><a href="">Ofrezca Su Propiedad</a></li>
                     </ul>
 	            </li>

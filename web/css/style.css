@@ -129,8 +129,9 @@ a:hover { color:#9dd356; text-decoration:none; }
 	text-decoration: underline;
 }
 
-/* TEXT ALIGNMENTS */
+/* TEXT ALIGNMENTS & TRANSFORMS */
 .txtC { text-align: center; }
+.txtUpper { text-transform: uppercase; }
 
 /* SPACES */
 .ptl, .pal { padding-top: 20px !important; }

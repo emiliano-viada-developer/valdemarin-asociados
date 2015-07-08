@@ -5,7 +5,7 @@
 	<!-- start subheader -->
 	<section class="subHeader page">
 	    <div class="container">
-	    	<h1>Cont&aacute;ctenos</h1>
+	    	<h1>{{ title|raw }}</h1>
 	    </div><!-- end subheader container -->
 	</section><!-- end subheader section -->
 
@@ -17,7 +17,7 @@
 	            <!-- start left column -->
 	            <div class="col-lg-4 col-md-4">
 	                <div class="txtC mbl"><img src="{{ asset('img/logo-horizontal.png') }}" alt="Valdemarin logo"></div>
-	                <p>Si desea contactarnos, por favor complete el siguiente formulario y en la brevedad nos pondremos en contacto con usted.</p>
+	                <p>{{ intro }}</p>
 					<br/>
 	            </div><!-- end left column -->
 
@@ -25,7 +25,7 @@
 	            <div class="col-lg-8 col-md-8">
 	                <div class="row">
 	                    <div class="col-lg-12 col-md-12">
-	                        <h3>CONTACTENOS</h3>
+	                        <h3 class="txtUpper">{{ title|raw }}</h3>
 	                        <div class="divider"></div>
 	                        <ul class="contactDetails">
 	                            <li><img src="{{ asset('img/icons/icon-mail.png') }}" alt="" />info@valdemarinasociados.com.ar</li>
@@ -36,7 +36,7 @@
 	                        <!-- Flash message -->
 	                        {{ include('default/flash_message.html.twig') }}
 
-	                        <form method="post" action="{{ path('contact') }}" id="contact-us" novalidate>
+	                        <form method="post" action="{{ path(form_action) }}" id="contact-us" novalidate>
 	                            <div class="row">
 	                                <div class="col-lg-6 col-md-6 col-sm-6">
 	                                    <div class="formBlock {% if not form.name.vars.valid %}has-error{% endif %}">
