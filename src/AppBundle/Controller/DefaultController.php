@@ -221,4 +221,20 @@ class DefaultController extends Controller
     {
     	return $this->render('about/legal_advice.html.twig');
     }
+
+    /**
+     * @Route("/acerca/nuestros-servicios", name="our_services")
+     */
+    public function ourServicesAction()
+    {
+    	return $this->render('about/our_services.html.twig');
+    }
+
+    /**
+     * @Route("/acerca/quienes-somos", name="who_we_are")
+     */
+    public function whoWeAreAction()
+    {
+    	return $this->render('about/who_we_are.html.twig');
+    }
 }

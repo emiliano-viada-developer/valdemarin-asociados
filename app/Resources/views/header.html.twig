@@ -47,13 +47,13 @@
 	                    <li><a href="">Ofrezca Su Propiedad</a></li>
                     </ul>
 	            </li>
-	            {% set about_class = (route == 'legal_advice')? 'current' : '' %}
+	            {% set about_class = (route == 'legal_advice' or route == 'our_services' or route == 'who_we_are')? 'current' : '' %}
 	            <li class="dropdown menu-item-has-children">
 	                <a href="{{ path('legal_advice') }}" class="{{ about_class }}">ACERCA DE NOSOTROS</a>
 	                <ul class="dropdown-menu">
 	                    <li><a href="{{ path('legal_advice') }}">Estudio Ju&iacute;dico</a></li>
-	                    <li><a href="">Nuestros Servicios</a></li>
-	                    <li><a href="">Qui&eacute;nes Somos?</a></li>
+	                    <li><a href="{{ path('our_services') }}">Nuestros Servicios</a></li>
+	                    <li><a href="{{ path('who_we_are') }}">Qui&eacute;nes Somos?</a></li>
                     </ul>
 	            </li>
 	        </ul>
