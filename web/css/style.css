@@ -140,6 +140,9 @@ a:hover { color:#9dd356; text-decoration:none; }
 .pb30, .pa30 { padding-bottom: 30px !important; }
 .mbl, .mal { margin-bottom: 20px !important; }
 
+/* DIMMENSIONS */
+.w25 { width: 25px !important; }
+
 /* BUTTONS */
 .buttonColor {
 	font-family:Open Sans;

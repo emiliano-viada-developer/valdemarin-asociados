@@ -5,7 +5,7 @@ namespace AppBundle\Form\Type;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class MakeRequestType extends ContactType
+class OfferPropertyType extends ContactType
 {
     /**
 	 * buildForm() method
@@ -17,8 +17,8 @@ class MakeRequestType extends ContactType
         $builder->remove('message');
         $builder->add('message', 'textarea', array(
             'required' => true,
-            'label' => 'Inquietud:',
-            'constraints' => array(new NotBlank(array('message' => 'Ingresa alguna inquietud.'))),
+            'label' => 'Datos de la Propiedad:',
+            'constraints' => array(new NotBlank(array('message' => 'Ingresa los datos de su propiedad.'))),
             'attr' => array('class' => 'formDropdown')
         ));
     }
@@ -28,6 +28,6 @@ class MakeRequestType extends ContactType
      */
     public function getName()
     {
-        return 'make_request';
+        return 'offer_property';
     }
 }

@@ -1,0 +1,12 @@
+<strong>Nombre y Apellido:</strong> {{ data.name }} <br>
+<strong>E-mail:</strong> {{ data.email }} <br>
+<strong>Telefono:</strong> {{ data.phone }} <br>
+<strong>Lugar / Ciudad:</strong> {{ data.locality }} <br>
+{% if data.interest|length > 0 %}
+	<strong>Interesado en:</strong>
+	{% for int in data.interest %}
+		{{ int ~ ' ' }}
+	{% endfor %}
+	 <br>
+{% endif %}
+<strong>Sugerencias / Comentarios:</strong> {{ data.message }} <br>

@@ -9,6 +9,8 @@ use AppBundle\Form\Type\BuildingSearcherType;
 use AppBundle\Form\Type\AuctionSearcherType;
 use AppBundle\Form\Type\ContactType;
 use AppBundle\Form\Type\MakeRequestType;
+use AppBundle\Form\Type\GetInfoType;
+use AppBundle\Form\Type\OfferPropertyType;
 
 class DefaultController extends Controller
 {
@@ -210,7 +212,7 @@ class DefaultController extends Controller
 
     	if ($request->isMethod('POST')) {
 			$form->handleRequest($request);
-			$form = $this->processForm($form, 'make_request', 'email/make_request.html.twig');
+			$form = $this->processForm($form, 'make_request', 'email/contact.html.twig');
 		}
 
 		return $this->render('default/contact.html.twig', array(
@@ -218,6 +220,43 @@ class DefaultController extends Controller
     		'form_action' => 'make_request',
     		'title' => 'Haga su Pedido',
     		'intro' => 'Si no encontro lo que buscaba en nuestro sitio, por favor dejenos su inquietud.'
+		));
+    }
+
+    /**
+     * @Route("/quiero-recibir-informacion", name="get_info")
+     */
+    public function getInfoAction(Request $request)
+    {
+    	$form = $this->createForm(new GetInfoType());
+
+    	if ($request->isMethod('POST')) {
+			$form->handleRequest($request);
+			$form = $this->processForm($form, 'get_info', 'email/get_info.html.twig');
+		}
+
+		return $this->render('default/get_info.html.twig', array(
+    		'form' => $form->createView()
+		));
+    }
+
+    /**
+     * @Route("/ofrezca-su-propiedad", name="offer_property")
+     */
+    public function offerPropertyAction(Request $request)
+    {
+    	$form = $this->createForm(new OfferPropertyType());
+
+    	if ($request->isMethod('POST')) {
+			$form->handleRequest($request);
+			$form = $this->processForm($form, 'offer_property', 'email/contact.html.twig');
+		}
+
+		return $this->render('default/contact.html.twig', array(
+    		'form' => $form->createView(),
+    		'form_action' => 'offer_property',
+    		'title' => 'Ofrezca su Propiedad',
+    		'intro' => 'Si usted desea vender o alquilar su propiedad complete el siguiente formulario y en la brevedad nos pondremos en contacto con usted.'
 		));
     }
 
@@ -234,11 +273,23 @@ class DefaultController extends Controller
 				case 'make_request':
 					$subject = 'Haga su Pedido | valdemarinasociados.com.ar';
 					$newForm = new MakeRequestType();
+					$messageLabel = 'Inquietud';
+					break;
+				case 'get_info':
+					$subject = 'Quiero Recibir Informacion | valdemarinasociados.com.ar';
+					$newForm = new GetInfoType();
+					$messageLabel = '';
+					break;
+				case 'offer_property':
+					$subject = 'Ofrezca su Propiedad | valdemarinasociados.com.ar';
+					$newForm = new OfferPropertyType();
+					$messageLabel = 'Datos de la Propiedad';
 					break;
 				case 'contact':
 				default:
 					$subject = 'Formulario de contacto | valdemarinasociados.com.ar';
 					$newForm = new ContactType();
+					$messageLabel = 'Sugerencias / Comentarios';
 					break;
 			}
 
@@ -251,17 +302,20 @@ class DefaultController extends Controller
 		        ->setBody(
 		            $this->renderView(
 		                $template,
-		                array('data' => $data)
+		                array('data' => $data, 'messageLabel' => $messageLabel)
 		            ),
 		            'text/html'
 		        )
 		    ;
-		    $this->get('mailer')->send($message);
+		    $sent = $this->get('mailer')->send($message);
 
-			$this->get('request')->getSession()->getFlashBag()->add(
-				'success',
-				'El formulario se ha enviado exitosamente!'
-			);
+			if ($sent) {
+				$this->get('request')->getSession()->getFlashBag()->add(
+					'success',
+					'El formulario se ha enviado exitosamente!'
+				);
+			}
+
 			$form = $this->createForm($newForm);
 		}
 
