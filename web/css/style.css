@@ -170,6 +170,8 @@ a:hover { color:#9dd356; text-decoration:none; }
 	background: linear-gradient(#81be32, #8fc34c); /* Standard syntax */
 }
 
+.buttonColor.disabled { opacity: .6; }
+
 .buttonGrey {
 	font-family:Open Sans;
 	font-size:11.4px;

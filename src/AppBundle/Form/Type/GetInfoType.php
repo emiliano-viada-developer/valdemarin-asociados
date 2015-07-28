@@ -16,7 +16,7 @@ class GetInfoType extends ContactType
 
         $builder->add('locality', 'text', array(
             'required' => true,
-            'label' => 'Lugar / Ciudad:',
+            'label' => '* Lugar / Ciudad:',
             'constraints' => array(new NotBlank(array('message' => 'Ingresa alguna ciudad.'))),
             'attr' => array('class' => 'formDropdown')
         ));

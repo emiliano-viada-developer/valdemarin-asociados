@@ -17,7 +17,7 @@ class MakeRequestType extends ContactType
         $builder->remove('message');
         $builder->add('message', 'textarea', array(
             'required' => true,
-            'label' => 'Inquietud:',
+            'label' => '* Inquietud:',
             'constraints' => array(new NotBlank(array('message' => 'Ingresa alguna inquietud.'))),
             'attr' => array('class' => 'formDropdown')
         ));

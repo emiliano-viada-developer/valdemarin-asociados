@@ -18,12 +18,12 @@ class ContactType extends AbstractType
         $builder
             ->add('name', 'text', array(
                 'required' => true,
-                'label' => 'Nombre y Apellido:',
+                'label' => '* Nombre y Apellido:',
                 'constraints' => array(new NotBlank(array('message' => 'Ingresa tu nombre y tu apellido.')))
             ))
             ->add('email', 'email', array(
                 'required' => true,
-                'label' => 'E-mail:',
+                'label' => '* E-mail:',
                 'constraints' => array(
                     new NotBlank(array('message' => 'Ingresa tu E-mail.')),
                     new Email(array('message' => 'Ingresa un E-mail valido.'))
@@ -31,12 +31,12 @@ class ContactType extends AbstractType
             ))
             ->add('phone', 'text', array(
                 'required' => true,
-                'label' => 'Telefono:',
+                'label' => '* Telefono:',
                 'constraints' => array(new NotBlank(array('message' => 'Ingresa tu telefono.')))
             ))
             ->add('message', 'textarea', array(
                 'required' => true,
-                'label' => 'Sugerencias / Comentarios:',
+                'label' => '* Sugerencias / Comentarios:',
                 'constraints' => array(new NotBlank(array('message' => 'Ingresa alguna sugerencia o comentario.'))),
                 'attr' => array('class' => 'formDropdown')
             ))

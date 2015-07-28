@@ -67,4 +67,92 @@ $(function() {
 		    prevText: '<img src="/img/slider-prev2.png" alt="Anterior" />'
 	    });
 	}
+
+	// Auction Search Form validation
+	var $auctionForm = $('#auction-searcher-form');
+	if ($auctionForm.length) {
+		$('#auction_searcher_status, #auction_searcher_location').on('change', function(e) {
+			var empty = true,
+				$btn = $('#auction-search');
+			$auctionForm.find('.formDropdown').each(function(i, el) {
+				if ($(el).val() != '') {
+					empty = false;
+				}
+			});
+			if (empty) {
+				$btn.addClass('disabled').attr('disabled', 'disabled');
+			} else {
+				$btn.removeClass('disabled').removeAttr('disabled');
+			}
+		});
+	}
+
+	// Validate Contact form
+	var $contactForm = $('#contact-us');
+	if ($contactForm.length) {
+		$contactForm.validate({
+			messages: {
+			    'contact[name]': {
+			      required: "Campo requerido."
+			    },
+			    'contact[email]': {
+			      required: "Campo requerido."
+			    },
+			    'contact[phone]': {
+			      required: "Campo requerido."
+			    },
+			    'contact[message]': {
+			      required: "Campo requerido."
+			    },
+			    'make_request[name]': {
+			      required: "Campo requerido."
+			    },
+			    'make_request[email]': {
+			      required: "Campo requerido."
+			    },
+			    'make_request[phone]': {
+			      required: "Campo requerido."
+			    },
+			    'make_request[message]': {
+			      required: "Campo requerido."
+			    },
+			    'offer_property[name]': {
+			      required: "Campo requerido."
+			    },
+			    'offer_property[email]': {
+			      required: "Campo requerido."
+			    },
+			    'offer_property[phone]': {
+			      required: "Campo requerido."
+			    },
+			    'offer_property[message]': {
+			      required: "Campo requerido."
+			    }
+		    }
+		});
+	}
+
+	// Validate Get Info form
+	var $getInfoForm = $('#get-info');
+	if ($getInfoForm.length) {
+		$getInfoForm.validate({
+			messages: {
+			    'get_info[name]': {
+			      required: "Campo requerido."
+			    },
+			    'get_info[email]': {
+			      required: "Campo requerido."
+			    },
+			    'get_info[phone]': {
+			      required: "Campo requerido."
+			    },
+			    'get_info[locality]': {
+			      required: "Campo requerido."
+			    },
+			    'get_info[message]': {
+			      required: "Campo requerido."
+			    }
+		    }
+		});
+	}
 });

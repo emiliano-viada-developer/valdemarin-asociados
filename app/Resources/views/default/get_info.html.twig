@@ -36,7 +36,7 @@
 	                        <!-- Flash message -->
 	                        {{ include('default/flash_message.html.twig') }}
 
-	                        <form method="post" action="{{ path('get_info') }}" id="contact-us" novalidate>
+	                        <form method="post" action="{{ path('get_info') }}" id="get-info" novalidate>
 	                            <div class="row">
 	                                <div class="col-lg-6 col-md-6 col-sm-6">
 	                                    <div class="formBlock {% if not form.name.vars.valid %}has-error{% endif %}">

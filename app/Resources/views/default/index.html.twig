@@ -115,7 +115,7 @@
 	            </form>
 	        </div><!-- END TAB1 -->
 	        <div class="filterContent defaultTab" id="tab2">
-	            <form method="post" action="{{ path('auction_search') }}" novalidate>
+	            <form method="post" action="{{ path('auction_search') }}" novalidate id="auction-searcher-form">
 	                <div class="row">
 	                    <div class="col-lg-4 col-md-4 col-sm-6">
 	                        <div class="formBlock select">
@@ -133,7 +133,7 @@
 	                    </div>
 	                    <div class="col-lg-4 col-md-4 col-sm-6">
 	                        <div class="formBlock">
-	                            <input class="buttonColor" type="submit" value="BUSCAR" style="margin-top:24px;">
+	                            <input id="auction-search" class="buttonColor disabled" type="submit" value="BUSCAR" style="margin-top:24px;" disabled="disabled">
 	                        </div>
 	                    </div>
 	                    <div style="clear:both;"></div>
