@@ -901,7 +901,10 @@ textarea { height:130px; width:100% !important; }
 }
 
 .pageList { text-align:center; margin-top:20px; }
-.pageList li { display:inline; }
+.pageList li {
+	display:inline;
+	margin: 0 3px;
+}
 .pageList li .current { background-color:#4a4786; color:white; font-family:Proxima Nova Semi-bold; }
 .pageList li a {
 	color:#a1a1a1;
