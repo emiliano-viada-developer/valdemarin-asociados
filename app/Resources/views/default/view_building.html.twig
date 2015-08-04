@@ -82,9 +82,17 @@
                             		<td>
                             			Compartir:
                             			<ul class="socialIcons">
-                                			<li><a href="#"><img src="{{ asset('img/icons/icon-fb.png') }}" alt="" /></a></li>
-                                			<li><a href="#"><img src="{{ asset('img/icons/icon-twitter.png') }}" alt="" /></a></li>
-                                			<li><a href="#"><img src="{{ asset('img/icons/icon-google.png') }}" alt="" /></a></li>
+                                			<li class="first">
+                                				<a href="https://www.facebook.com/dialog/share?app_id={{ facebook_app_id }}&display=popup&href={{ url('view_building', {'slug': building.slug}) }}&redirect_uri={{ url('view_building', {'slug': building.slug}) }}" target="_blank">
+                                					<img src="{{ asset('img/icons/icon-fb.png') }}" alt="" />
+                                				</a>
+                                			</li>
+                                			<li>
+                                				<a href="https://twitter.com/share" target="_blank">
+                                					<img src="{{ asset('img/icons/icon-twitter.png') }}" alt="" />
+                                				</a>
+                                			</li>
+                                			<!--<li><a href="#"><img src="{{ asset('img/icons/icon-google.png') }}" alt="" /></a></li>-->
                             			</ul>
                             		</td>
                             	</tr>
