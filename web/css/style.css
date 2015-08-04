@@ -128,6 +128,9 @@ a:hover { color:#9dd356; text-decoration:none; }
 .underline {
 	text-decoration: underline;
 }
+.fr {
+	float: right !important;
+}
 
 /* TEXT ALIGNMENTS & TRANSFORMS */
 .txtC { text-align: center; }
@@ -1431,8 +1434,14 @@ textarea { height:130px; width:100% !important; }
 }
 
 .alertBox img { float:left; margin-right:10px; margin-top:-3px; }
-
-.success { 
+.alertBox .close-flash {
+	cursor: pointer;
+	opacity: .5;
+}
+.alertBox .close-flash:hover {
+	opacity: 1;
+}
+.success {
 	background-color:#e2f1db;
 	border-color:#8dca70;
 	color:#73a45b;

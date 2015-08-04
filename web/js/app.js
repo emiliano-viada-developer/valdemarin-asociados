@@ -155,4 +155,11 @@ $(function() {
 		    }
 		});
 	}
+
+	// Close Flash messages
+	$('.close-flash').on('click', function(e) {
+		var _this = $(e.currentTarget),
+			box = _this.closest('.alertBox');
+		box.fadeOut(300);
+	});
 });
