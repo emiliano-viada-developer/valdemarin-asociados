@@ -17,6 +17,7 @@ $subdomain = $domainArray[0];
 $debug = false;
 switch ($subdomain) {
     case 'local':
+    case 'dev':
         $env = 'dev';
         $debug = true;
         break;
