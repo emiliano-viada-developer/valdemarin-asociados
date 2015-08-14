@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="es" datatype="plaintext" original="messages.es.xliff">
+        <body>
+            <trans-unit id="1">
+                <source>profile.last_login</source>
+                <target>Ultima conexion</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>link_logout</source>
+                <target>Desconectar</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
