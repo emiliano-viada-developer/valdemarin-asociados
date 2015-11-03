@@ -482,19 +482,19 @@ textarea { height:130px; width:100% !important; }
 .subHeader.home.bxslider .container { padding:90px 0px 150px 0px; }
 
 #slide1 {
-	background-image: url('../img/1600x670.gif');
+	background-image: url('../img/slide01.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 }
 
 #slide2 {
-	background-image: url('../img/1600x670.gif');
+	background-image: url('../img/slide02.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 }
 
 #slide3 {
-	background-image: url('../img/1600x670.gif');
+	background-image: url('../img/slide03.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 }
