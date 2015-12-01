@@ -14,7 +14,7 @@ use AppBundle\Form\Type\OfferPropertyType;
 
 class DefaultController extends Controller
 {
-    const CONTACT_EMAIL = 'info@valdemarinasociados.com.ar';
+    const CONTACT_EMAIL = 'inmobiliariavaldemarin@gmail.com';
 
     /**
      * @Route("/", name="homepage")

@@ -28,6 +28,7 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         facebook_app_id: "%facebook_app_id%"
+        ga_tracking_id: "%ga_tracking_id%"
     form:
         resources:
             - 'OhGoogleMapFormTypeBundle:Form:fields.html.twig'
