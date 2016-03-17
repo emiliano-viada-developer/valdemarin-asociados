@@ -67,15 +67,18 @@
 	                        <p class="forSale" style="float:right; margin-right:20px;">{{ building.operationType|upper }}</p>
 	                        <h1>Inmueble {{ building.reference }}</h1>
 	                        <p>{{ building.address }}, {{ building.location }}</p>
-	                        <p>{{ building.description|raw }}</p><br/>
+	                        <div class="text-justify">{{ building.description|raw }}</div>
+	                        <br/>
 
 	                        <h4>DETALLE</h4>
 	                        <div class="divider thin"></div>
-	                        <p>{{ building.detail|raw }}</p><br/>
+	                        <div class="text-justify">{{ building.detail|raw }}</div>
+	                        <br/>
 
 	                        <h4>SERVICIOS</h4>
 	                        <div class="divider thin"></div>
-	                        <p>{{ building.services|raw }}</p><br/>
+	                        <div class="text-justify">{{ building.services|raw }}</div>
+	                        <br/>
 
 	                        <table border="1" class="agentDetails">
                             	<tr>

@@ -28,4 +28,5 @@ assetic:
     use_controller: true
 
 swiftmailer:
+    spool:     { type: memory }
     delivery_address: dev.valdemarin@gmail.com

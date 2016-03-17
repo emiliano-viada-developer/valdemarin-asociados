@@ -45,7 +45,7 @@
 				                            		{% endif %}
 				                            		{{ item.location }}
 			                            		</p>
-				                            	<p>{{ item.description|slice(0, 200) }}</p>
+				                            	<p>{{ item.description|slice(0, 200)|raw }}..</p>
 				                            	<table border="1" class="agentDetails">
 				                                	<tr>
 				                                		<td>

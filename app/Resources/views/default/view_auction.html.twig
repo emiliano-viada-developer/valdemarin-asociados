@@ -66,15 +66,18 @@
 	                        <p class="forSale" style="float:right; margin-right:20px;">{{ auction.status|upper }}</p>
 	                        <h1>Subasta {{ auction.title }}</h1>
 	                        <p>{{ auction.location }}</p>
-	                        <p>{{ auction.description|raw }}</p><br/>
+	                        <div class="text-justify">{{ auction.description|raw }}</div>
+	                        <br/>
 
 	                        <h4>CONDICIONES</h4>
 	                        <div class="divider thin"></div>
-	                        <p>{{ auction.conditions|raw }}</p><br/>
+	                        <div class="text-justify">{{ auction.conditions|raw }}</div>
+	                        <br/>
 
 	                        <h4>BIENES</h4>
 	                        <div class="divider thin"></div>
-	                        <p>{{ auction.possessions|raw }}</p><br/>
+	                        <div class="text-justify">{{ auction.possessions|raw }}</div>
+	                        <br/>
 
 	                        <table border="1" class="agentDetails">
                             	<tr>
