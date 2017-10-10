@@ -85,7 +85,7 @@ class BuildingRepository extends EntityRepository
         	}
         }
 
-        return $q->getQuery()->getResult();
+        return $q->orderBy('b.createdAt', 'DESC')->getQuery()->getResult();
 	}
 
     /**

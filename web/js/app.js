@@ -15,9 +15,9 @@ $(function() {
 
 	if ($priceSlider.length) {
 		var priceMinField = $("#building_searcher_price_min"),
-			priceMin = (priceMinField.val())? priceMinField.val() : 15000,
+			priceMin = (priceMinField.val())? priceMinField.val() : 0,
 			priceMaxField = $("#building_searcher_price_max"),
-			priceMax = (priceMaxField.val())? priceMaxField.val() : 550000;
+			priceMax = (priceMaxField.val())? priceMaxField.val() : 2000000;
 
 		$priceSlider.noUiSlider({
 		     range: {
